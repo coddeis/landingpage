@@ -1,0 +1,64 @@
+.contact {
+    position: relative;
+    min-width: 100%;
+    padding-bottom: 4.5rem;
+    &__form__row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    &__fieldset {
+        position: relative;
+        padding: 0.75rem;
+        border: none;
+        @media #{$break1} {
+            padding: 0.75rem 0;
+        }
+    }
+    &__input {
+        position: relative;
+        width: 100%;
+        padding: 1rem 1.5rem;
+        border: 1px solid $dark-grey;
+        border-radius: .4rem;
+        outline: none;
+        &--error {
+            color: $red;
+            border-color: $red;
+        }
+    }
+    &__label {
+        position: absolute;
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        white-space: nowrap;
+        border: 0;
+    }
+    &__error, 
+    &__form-error,
+    &__form-success {
+        display: none;
+    }
+    &__error,
+    &__form-error {
+        &--active {
+            position: absolute;
+            bottom: -5px;
+            display: inline-block;
+            color: $red;
+            font-size: 0.8rem;
+            line-height: 1;
+        }
+    }
+    &__form-success {
+        &--active {
+            display: inline-block;
+            color: blue;
+            padding: 0.5rem 1.5rem;
+        }
+    }
+}

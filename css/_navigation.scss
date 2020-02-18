@@ -1,0 +1,184 @@
+.header {
+    $this: &;
+
+    position: fixed;
+    right: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    z-index: 22;
+    &:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: $pinky;
+        transition: all .3s;
+        transform: translateY(-100%);
+    }
+    &--dark:before {
+        transform: translateY(0);
+    }
+    &__container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        @media screen and #{$breakMenu1} { 
+            min-height: 3.75rem;
+            transition: all 0.3s ease-out;
+        }
+        @media screen and #{$breakMenu2} {   
+            min-height: 6.25rem;
+            transition: all 0.3s ease-out;
+        }
+    }
+    &--small {
+        #{$this}__container {
+            @media screen and #{$breakMenu2} {   
+                min-height: 4.125rem;
+                transition: all 0.3s ease-out;
+            }
+        }
+    }
+    &__logo {
+        display: flex;
+        align-items: center;
+        color: $white;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 1.25rem;
+        line-height: 1;
+        z-index: 33;
+        svg {
+            margin-right: 5px;
+        }
+    }
+    &__menu {
+        @media screen and #{$breakMenu1} { 
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 3rem 0 0;
+            text-align: center;
+            background-color: $pinky;
+        }
+        @media screen and #{$breakMenu2} { 
+            display: flex;
+            align-items: center;
+        }
+        &--active {
+            display: block;
+            &:after {
+                content: "";
+                position: absolute;
+                display: block;
+                height: 100vh;
+                width: 100%;
+                background-color: $dark_grey;
+                opacity: 0.2;
+            }
+        }
+        &__list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            @media screen and #{$breakMenu1} { 
+                flex-direction: column;
+            }
+            @media screen and #{$breakMenu2} {
+                flex-direction: row;
+            }
+        }
+        &__item {
+            position: relative;
+        }
+        &__link {
+            display: inline-block;
+            color: $white;
+            font-size: 1rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            @media screen and #{$breakMenu1} { 
+                padding: 1rem;
+            }
+            @media screen and #{$breakMenu2} {
+                padding: 1rem;
+            }
+        }
+    }
+    &__hamburger {
+        @media screen and #{$breakMenu1} {
+            position: relative;
+            display: inline-block;
+            width: 3rem;
+            height: 3rem;
+            &:hover, &:focus {
+                cursor: pointer;
+            }
+        }
+        @media screen and #{$breakMenu2} {
+            display: none;
+        }
+    }
+}
+
+.hamburger {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    $this: &;
+
+    &__box {
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: all 0.3s ease-out;
+        &, &:before, &:after {
+            position: absolute;
+            display: block;
+            width: 31px;
+            height: 2px;
+            background: $white;
+            z-index: 1;
+            transition: all 0.3s ease-out;
+        }
+        &:before, &:after {
+            content: "";
+        } 
+        &:before {
+            top: -10px;
+        }
+        &:after {
+            top: 10px;
+        }
+    }
+    &--close {
+        #{$this}__box {
+            transform: rotate(45deg);
+            left: 8px;
+            transition: all 0.3s ease-out;
+        }
+        #{$this}__box:before {
+            top: 0;
+            opacity: 0;
+            transition: all 0.3s ease-out;
+        }
+        #{$this}__box:after {
+            transform: rotate(-90deg);
+            top: 0;
+            transition: all 0.3s ease-out;
+        }
+    }
+}
+
+

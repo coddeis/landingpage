@@ -1,0 +1,252 @@
+html {
+    font-family: sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    &:before, &:after {
+        box-sizing: border-box;
+    }
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    line-height: 1.5rem;
+    color: $black;
+}
+
+a {
+    color: $pinky;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem;;
+    cursor: pointer;
+    .arrow {
+        position: relative;
+        display: inline-block;
+        visibility: hidden;
+        opacity: 0;
+        background: $pinky;
+        height: 2px;
+        width: 15px;
+        transform: translate(0px, -3px);
+        transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+      
+        &:before,
+        &:after {
+            content: "";
+            background: $pinky;
+            position: absolute;
+            height: 2px;
+            width: 9px;
+        }
+      
+        &:before {
+          right: 0;
+          bottom: -2px;
+          transform: rotate(-30deg);
+        }
+      
+        &:after {
+          right: 0;
+          top: -2px;
+          transform: rotate(30deg);
+        }
+      }
+
+    &:hover {
+        .arrow {
+            visibility: visible;
+            opacity: 1;
+            transform: translate(10px, -3px);
+            transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+        }
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+p {
+    font-size: inherit;
+    line-height: inherit;
+    padding: 0 0 1rem;
+    margin: 0;
+}
+
+section {
+    padding: 4rem 0;
+}
+
+fieldset {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+// GRID 
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    min-height: .1rem;
+    margin: 0 auto;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    @media screen and #{$break1} {
+        max-width: 540px;
+    }
+    @media screen and #{$break2} {
+        max-width: 720px;
+    }
+    @media screen and #{$break3} {
+        max-width: 990px;
+    }
+    @media screen and #{$break4} {
+        max-width: 1170px;
+    }
+}
+
+.row {
+    display: flex;
+    min-height: .1rem;
+    -webkit-box-flex: 0;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+// Columns' sizing
+
+@function cols-qty($col) {
+    $grid: 12;
+    @return 100 / ( $grid / $col ) * 1%;
+}
+
+@mixin make-col($col) {
+    max-width: cols-qty($col);
+    flex-basis: cols-qty($col);
+}
+
+[class*=col--] {
+    position: relative;
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.col--12 {
+    @include make-col(12);
+}
+
+@media #{$break0} {
+    .col--xsmall--3 {
+        @include make-col(3);
+    }
+
+    .col--xsmall--6 {
+        @include make-col(6);
+    }
+
+    .col--xsmall--12 {
+        @include make-col(12);
+    }
+}
+
+@media #{$break1} {
+    .col--small--3 {
+        @include make-col(3);
+    }
+
+    .col--small--6 {
+        @include make-col(6);
+    }
+
+    .col--small--12 {
+        @include make-col(12);
+    }
+}
+
+@media #{$break2} {
+    .col--medium--3 {
+        @include make-col(3);
+    }
+
+    .col--medium--4 {
+        @include make-col(4);
+    }
+
+    .col--medium--5 {
+        @include make-col(5);
+    }
+
+    .col--medium--6 {
+        @include make-col(6);
+    }
+
+    .col--medium--7 {
+        @include make-col(7);
+    }
+}
+
+@media #{$break3} {
+    .col--large--3 {
+        @include make-col(3);
+    }
+
+    .col--large--4 {
+        @include make-col(4);
+    }
+
+    .col--large--5 {
+        @include make-col(5);
+    }
+
+    .col--large--6 {
+        @include make-col(6);
+    }
+
+    .col--large--7 {
+        @include make-col(7);
+    }
+}
+
+@media #{$break4} {
+    .col--xlarge--3 {
+        @include make-col(3);
+    }
+
+    .col--xlarge--4 {
+        @include make-col(4);
+    }
+
+    .col--xlarge--5 {
+        @include make-col(5);
+    }
+
+    .col--xlarge--6 {
+        @include make-col(6);
+    }
+
+    .col--xlarge--7 {
+        @include make-col(7);
+    }
+}
+
+// Layout
+
+.flex-col-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

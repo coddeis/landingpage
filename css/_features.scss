@@ -1,0 +1,51 @@
+.features {
+    background-color: $grey;
+
+    &__row {
+        justify-content: center;
+    }
+
+    &__item {
+        position: relative;
+        padding: 1rem;
+        width: 100%;
+    }
+
+    &__image-wrapper {
+        position: relative;
+        overflow: hidden;
+        font-size: 0;
+        line-height: 0;
+        border-radius: 8px;
+    }
+    &__title {
+        font-size: 1.125rem;
+    }
+
+    &__details {
+        position: relative;
+        background: $white;
+        box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 1.875rem;
+        margin: -5.5rem 1.875rem 1rem;
+        @media screen and #{$break0} {
+            margin: -5.5rem 3rem 1rem;
+            padding: 1.875rem 3rem;
+        }
+        @media screen and #{$break1} {
+            margin: -5.5rem 3rem 1rem;
+            padding: 1.875rem 3rem;
+        }
+        @media screen and #{$break3} {
+            margin: -5.5rem 1.5rem 1rem;
+        }
+    }
+    &__description {
+        font-size: 0.875rem;
+        margin: 0.5rem 0 0;
+        @media screen and #{$break2} {
+            min-height: 5.5rem;
+        }
+    }
+}

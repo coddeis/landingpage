@@ -1,0 +1,102 @@
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__cover {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        z-index: -1;
+        @media #{$break0} {
+            background-image: url(../img/header-cover_768@1_25x.jpg);
+        }
+        @media #{$break1} {
+            background-image: url(../img/header-cover_768@1_25x.jpg);
+        }
+        @media #{$break2} {
+            background-image: url(../img/header-cover_768@1_25x.jpg);
+        }
+        @media #{$break3} {
+            background-image: url(../img/header-cover_1140@1_25x.jpg);
+        }
+        @media #{$break4} {
+            background-image: url(../img/header-cover_1920@1_25x.jpg);
+        }
+    }
+    &__content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__title {
+        font-style: normal;
+        font-weight: bold;
+        line-height: 1.25;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding-bottom: 2rem;
+        transition: all 0.3s ease-out;
+        @media #{$break0} {
+            font-size: 2rem;
+        }
+        @media #{$break1} {
+            font-size: 3rem;
+        }
+        @media #{$break2} {
+            font-size: 3.5rem;
+        }
+        @media #{$break3} {
+            font-size: 4rem;
+        }
+        @media #{$break4} {
+            font-size: 4.5rem;
+        }
+    }
+    &__text {
+        font-style: normal;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 2rem;
+        padding: 1rem;
+        font-size: 1.5rem;
+        line-height: 1.5;
+        max-width: 500px;
+        transition: all 0.3s ease-out;
+        @media #{$break0} {
+            font-size: 1.25rem;
+            max-width: 80%;
+        }
+        @media #{$break1} {
+            font-size: 1.25rem;
+            max-width: 80%;
+        }
+        @media #{$break2} {
+            font-size: 1.5rem;
+        }
+        @media #{$break3} {
+            font-size: 1.5rem;
+        }
+        @media #{$break4} {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    content: "";
+    z-index: 0;
+    background: linear-gradient(90deg, rgba(213, 32, 71, 0.8) 0%, rgba(238, 61, 27, 0.8) 100%);
+}
+
